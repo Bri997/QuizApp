@@ -2,24 +2,26 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="quizstyle.css">
 </head>
 
 <body>
 	<div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
+  <h1 class="display-3">Hello, world! </h1>
 
 
-<div class ="storeQuestions"></div>
+	<form class="quizContainer" name="quizQuestions" onSubmit="return JSFUNCTION()">
+		<input class= "quizSelections" type="radio" name ="quizQuestions" value ="a OR FUCNTION()">
+</form>
 
-<div class ="showScore"></div>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
 
 
 
 
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="quizJS.js" type="text/javascript"></script>
-
-
 </html>
