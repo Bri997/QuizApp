@@ -4,17 +4,59 @@
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="quizstyle.css">
+	<style>
+		.quiz {
+			border: 1px solid black;
+			padding: 20px;
+		}
+
+		.myQ {
+			font-size: 24px;
+			font-weight: bold;
+			padding: 10px;
+		}
+
+		.btnAns {
+			border: 1px solid #ddd;
+			padding: 10px;
+			text-align: center;
+			display: block;
+			font-size: 16px;
+		}
+
+		.btnAns:hover {
+			background-color: cornflowerblue;
+			color: azure;
+		}
+	</style>
 </head>
 
 <body>
-	<div id="output"></div>
+	<div class="container">
+		<div class="row quiz">
+			<div id="output"></div>
+		</div>
+		<!-- <input class= "quizSelections" type="radio" name ="quizQuestions" value ="a OR FUCNTION()"> -->
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div id="btnPre" class="btn btn-primary">
+				Previous
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div id="btnNxt" class="btn btn-primary">
+				Next
+			</div>
+		</div>
+	</div>
+
 	<!-- <div class="jumbotron">
   <h1 class="display-3">Hello, world! </h1>
 
 
-	<form class="quizContainer" name="quizQuestions" onSubmit="return JSFUNCTION()">
-		<input class= "quizSelections" type="radio" name ="quizQuestions" value ="a OR FUCNTION()">
-</form>
+
 
 <button id="submit">Submit Quiz</button>
 <div id="results"></div> -->

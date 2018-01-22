@@ -33,12 +33,19 @@ function loadQuestions(){
 function buildQuiz(){
   for (var i in myQuestions) {
     var myQuestion = myQuestions[page - 1].question;
-    var myCorrect = myQuestions[page - 1].question;
+    var myCorrect = myQuestions[page - 1].correctAnswer;
     var questionHolder = '';
+    var yesCor = '';
     for(var i in myQuestions[page - 1].answers){
-      questionHolder += '<div class="col-sm-6"><a>'+myQuestions[page-1].answers[i] + '</a></div>';
+      console.log(i);
+      if (i == myCorrect) {
+        yesCor = '*';
+      } else {
+        yesCor = '';
+      }
+      questionHolder += '<div class="col-sm-6"><div class="btnAns">'+myQuestions[page-1].answers[i] + ' ' +  yesCor + '</div></div>';
     }
-    output.innerHTML = '<div>'+ myQuestion + '</div>';
+    output.innerHTML = '<div class="myQ">'+ myQuestion + ' </div>';
     output.innerHTML += questionHolder;
     console.log();
   }
