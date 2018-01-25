@@ -32,73 +32,31 @@ const data = {
   startQuiz: false
 };
 
-/** if you had to do it in a for loop all at once **/
-
-for ( let i = 0; i < data.length; i++ ){
-  // i will tell us which question to use
-  let thisQ = data[i];
-  console.log(thisQ);
-}
-
-
-// first show splash screen
-//showQuestion(currentIndex);
-
-// then on click, show question 1,
-// then on click, answer question 1,
-// then on click, show question 2,
-// then on click, answer question 2,
-
-/** stretch the for loop over time: **/
-
-let currentIndex = 0;
-
-function drawCurrentQuestion(){
-  let q = data[currentIndex];
-
-  let displayQuestions = getHTMLForQuestion(q);
-  $('#quizSelections').html(html);
-}
-
-function nextQuestion(){
-  currentIndex++;
-  drawCurrentQuestion();
-}
-/*
-function buttonClickHandler(event){
-  if( currentIndex >= questions.length ){
-    //$("#displayQuestions").prepend( "DONE");
-    console.log("done");
-    // end of quiz, show the results screen
-  } else {
+$(document).ready(function() {
+  $("#startQuiz").click(function(){
+    startQuiz();
+  });
+  $(".myForm").submit(function(event) {
+    event.preventDefault();
     nextQuestion();
-  }
-}
-*/
-$("#startQuiz").on("click",function(){
-  startQuiz();
-
-  //console.log('ran');
-});
-
-$("#submit").submit(function(event) {
-  event.preventDefault();
-  nextQuestion();
-    $("#displayQuestions").empty();
-  $("#displayQuestions").prepend( "<p> " + data[currentIndex].question + " </p>");
-  currentIndex++;
-  console.log('ran');
-
-});
-
-$().click(function(){
+  });
+  $("#continue").click(function(){
+    renderPage();
+  });
+  $("#retake").click(function(event){
+    event.preventDefault();
+    retakeQuiz();
+  });
   renderPage();
 });
 
 function renderPage() {
   if (data.startQuiz === false) {
-
+    $("section").hide();
+    $("#startPage").show();
   } else {
+    $("section").hide();
+    $("#questionPage").show();
     loadQuestions();
   }
 }
