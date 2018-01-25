@@ -1,80 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<title>Brian's Quiz</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="quizstyle.css">
-	<style>
-		.quiz {
-			border: 1px solid black;
-			padding: 20px;
-		}
-
-		.myQ {
-			font-size: 24px;
-			font-weight: bold;
-			padding: 10px;
-		}
-
-		.btnAns {
-			border: 1px solid #ddd;
-			padding: 10px;
-			text-align: center;
-			display: block;
-			font-size: 16px;
-		}
-
-		.btnAns:hover {
-			background-color: cornflowerblue;
-			color: azure;
-		}
-	</style>
 </head>
-
 <body>
-	<div class="container">
-		<div class="row quiz">
-			<div id="output"></div>
-		</div>
-		<!-- <input class= "quizSelections" type="radio" name ="quizQuestions" value ="a OR FUCNTION()"> -->
+	<header id="title" role="banner">
+		<h1>Brian's Quiz</h1>
+	</header>
+	<div id="container">
+		<section id="startPage" role="region">
+			<h2>Thinkful is in da House!</h2>
+			<button type="submit" id="startQuiz" role="button">Start Quiz</button>
+		</section>
+		<section id="questionPage" role="region">
+			<form class="myForm" action="form" role="form">
+				<h2>Question</h2>
+				<input type="radio" name="option" value="0" role="radio"><label id="opt1">text</label><br>
+				<input type="radio" name="option" value="1" role="radio"><label id="opt2">text</label><br>
+				<input type="radio" name="option" value="2" role="radio"><label id="opt3">text</label><br>
+				<input type="radio" name="option" value="3" role="radio"><label id="opt4">text</label><br>
+				<button type="submit" id="nextQuestion" role="button">Next</button>
+				<p><span id="questionNo">5</span> out of <span id="outOf">10</span></p>
+			</form>
+		</section>
+		<section id="showAnswer" role="region">
+			<h2>Correct</h2>
+			<button type="submit" id="continue" role="button">Continue Quiz</button>
+		</section>
+		<section id="finalPage" role="region">
+			<h2>Your Result</h2>
+			<p>You got <span id="correctNo">5</span> out of <span id="total-outof">10</span> correct</p>
+			<button type="submit" id="retake">Retake Quiz</button>
+		</section>
 	</div>
-
-	<div class="row">
-		<div class="col-sm-6">
-			<div id="btnPre" class="btn btn-primary">
-				Previous
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div id="btnNxt" class="btn btn-primary">
-				Next
-			</div>
-		</div>
-	</div>
-
-	<!-- <div class="jumbotron">
-  <h1 class="display-3">Hello, world! </h1>
-
-
-
-
-<button id="submit">Submit Quiz</button>
-<div id="results"></div> -->
-
-	<!-- <div class="jumbotron">
-  <h1 class="display-3">Welcome to the quiz. </h1>
-<div id = "displayQuestions" value ="data"></div>
-
-<form>
-		<input id= "quizSelections" type="radio" name ="quizQuestions" value ="">
-</form>
-<button id="startQuiz">Start The Quiz</button>
-<button id="submit">Next Question</button>
-<div id="results"></div> -->
-
-
-
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="quizJS.js" type="text/javascript"></script>
