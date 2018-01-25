@@ -1,5 +1,5 @@
 const data = {
-  quesiton:[
+  question:[
 
 
 // this is object 1 but we won't name it because it is inside an array
@@ -31,24 +31,6 @@ const data = {
   totalScore: 0,
   startQuiz: false
 };
-
-$(function() {
-  $("#startQuiz").click(function() {
-    startQuiz();
-  });
-  $(".myForm").submit(function(event) {
-    event.preventDefault();
-    nextQuestion();
-  });
-  $("#continue").click(function() {
-    renderPage();
-  });
-  $("#retake").click(function(event) {
-    event.preventDefault();
-    retakeQuiz();
-  });
-  renderPage();
-});
 
 /** if you had to do it in a for loop all at once **/
 
@@ -109,10 +91,30 @@ $("#submit").submit(function(event) {
 
 });
 
+$().click(function(){
+  renderPage();
+});
+
+function renderPage() {
+  if (data.startQuiz === false) {
+
+  } else {
+    loadQuestions();
+  }
+}
+
 function startQuiz(){
   data.startQuiz = true;
   data.currentQuestion = 0;
   data.totalScore = 0;
+  renderPage();
 
 }
-startQuiz();
+
+function loadQuestions(){
+
+}
+
+function continueQuiz(){
+  renderPage();
+}
