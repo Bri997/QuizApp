@@ -66,13 +66,21 @@ function startQuiz(){
   data.currentQuestion = 0;
   data.totalScore = 0;
   renderPage();
-
 }
 
 function loadQuestions(){
-
+  // another if statement similar to renderPage
 }
+
+// reassign data.questions
+// add if conditional
+data.currentQuestion++;
 
 function continueQuiz(){
   renderPage();
+}
+
+function retakeQuiz(){
+  // similar to renderPage() function
+  // but without conditional
 }
