@@ -72,6 +72,10 @@ function loadQuestions(){
   // another if statement similar to renderPage
 }
 
+function nextQuestion(){
+  
+}
+
 // reassign data.questions
 // add if conditional
 data.currentQuestion++;
