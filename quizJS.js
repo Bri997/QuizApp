@@ -1,30 +1,36 @@
-var myQuestions = {
-  [
-    {
-      "question": "What is your nearest star?",
-      "answers": {
-        "a": "Alpha Centauri",
-        "b": "Barnard\'s Star",
-        "c": "Sirius",
-        "d": "Sol"
-      },
-      "correctAnswer": "d"
-    },
+const data = {
+  quesiton:[
 
-    {
-      "question": "It is important to stay away from the event horizon \n of our black hole Sagittarius A* \n that limit is?",
-      "answers": {
-        "a": "Eight million miles",
-        "b": "Fifty thousand miles",
-        "c": "Twenty seven trillion miles"
-      },
-      "correctAnswer": "a"
-    }
-  ];
-  currentQuestion: 0;
-  totalScore: 0;
-  startQuiz: false;
+
+// this is object 1 but we won't name it because it is inside an array
+{
+  question: 'Question 1 what is that thing?',
+  answers:[
+     'this',
+     'that',
+     'something',
+     'allodat'
+  ],
+  correctAnswer: 0
+},
+
+// this is object 2 but we won't name it because it is inside an array
+{
+  question: 'Question 2 what is that other thing?',
+  answers: [
+    'this',
+    'that',
+    'something',
+    'allodat'
+  ],
+  correctAnswer: 2
 }
+
+],
+  currentQuestion: 0,
+  totalScore: 0,
+  startQuiz: false
+};
 
 $(function() {
   $("#startQuiz").click(function() {
@@ -44,45 +50,69 @@ $(function() {
   renderPage();
 });
 
-var output = document.getElementById('output');
-    page = 0;
-loadQuestions();
+/** if you had to do it in a for loop all at once **/
 
-// Event Listeners
-btnPre.onclick = buildQuiz(page - 1);
-btnNxt.onclick = buildQuiz(page + 1);
-
-function loadQuestions(){
-  buildQuiz(1);
+for ( let i = 0; i < data.length; i++ ){
+  // i will tell us which question to use
+  let thisQ = data[i];
+  console.log(thisQ);
 }
 
-function buildQuiz(page){
-  console.log(page);
-  if (page > 0) {
-    yesCor = '*';
+
+// first show splash screen
+//showQuestion(currentIndex);
+
+// then on click, show question 1,
+// then on click, answer question 1,
+// then on click, show question 2,
+// then on click, answer question 2,
+
+/** stretch the for loop over time: **/
+
+let currentIndex = 0;
+
+function drawCurrentQuestion(){
+  let q = data[currentIndex];
+
+  let displayQuestions = getHTMLForQuestion(q);
+  $('#quizSelections').html(html);
+}
+
+function nextQuestion(){
+  currentIndex++;
+  drawCurrentQuestion();
+}
+/*
+function buttonClickHandler(event){
+  if( currentIndex >= questions.length ){
+    //$("#displayQuestions").prepend( "DONE");
+    console.log("done");
+    // end of quiz, show the results screen
   } else {
-     yesCor = '';
+    nextQuestion();
   }
-  questionHolder += '<div class="col-sm-6"><div class="btnAns">'+myQuestions[page-1].answers[i] + ' ' +  yesCor + '</div></div>';
-  }
-    output.innerHTML = '<div class="myQ">'+ myQuestion + ' </div>';
-    output.innerHTML += questionHolder;
-    console.log();
-  var myQuestion = myQuestions[page - 1].question;
-  var myCorrect = myQuestions[page - 1].correctAnswer;
-  var questionHolder = '';
-  var yesCor = '';
-  for(var i in myQuestions[page - 1].answers){
-    console.log(i);
-  //   if (i == myCorrect) {
-  //     yesCor = '*';
-  //   } else {
-  //     yesCor = '';
-  //   }
-  //   questionHolder += '<div class="col-sm-6"><div class="btnAns">'+myQuestions[page-1].answers[i] + ' ' +  yesCor + '</div></div>';
-  // }
-  //   output.innerHTML = '<div class="myQ">'+ myQuestion + ' </div>';
-  //   output.innerHTML += questionHolder;
-  //   console.log();
+}
+*/
+$("#startQuiz").on("click",function(){
+  startQuiz();
+
+  //console.log('ran');
+});
+
+$("#submit").submit(function(event) {
+  event.preventDefault();
+  nextQuestion();
+    $("#displayQuestions").empty();
+  $("#displayQuestions").prepend( "<p> " + data[currentIndex].question + " </p>");
+  currentIndex++;
+  console.log('ran');
+
+});
+
+function startQuiz(){
+  data.startQuiz = true;
+  data.currentQuestion = 0;
+  data.totalScore = 0;
 
 }
+startQuiz();
