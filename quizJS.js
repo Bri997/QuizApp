@@ -1,5 +1,5 @@
 const data = {
-  question:[
+  questions:[
 
 
 // this is object 1 but we won't name it because it is inside an array
@@ -73,7 +73,7 @@ function loadQuestions(){
 }
 
 function nextQuestion(){
-  
+
 }
 
 // reassign data.questions
