@@ -17,14 +17,47 @@
 			<button type="submit" id="startQuiz" role="button">Start Quiz</button>
 		</section>
 
+<<<<<<< HEAD
+=======
+		<section id="results-page" class="hidden">
+			<div class="js-final-results text-center"></div>
+			<button class="hidden" id="retake-question"></button>
+		</section>
+
+		<section class="popup" data-popup="popup-feedback">
+			<div class="popup-inner">
+				<h2 id="text-feedback"></h2>
+			</div>
+		</section>
+
+>>>>>>> refs/remotes/origin/master
 		<section id="questionPage" role="region">
+			<h3 class="js-question-text">
+				<span>(1/10)</span>
+			</h3>
 			<form class="myForm" action="form" role="form">
+<<<<<<< HEAD
 				<h2 class="myQuestion">Question</h2>
 				<input type="radio" name="option" value="0" role="radio"><label id="opt1">text</label><br>
 				<input type="radio" name="option" value="1" role="radio"><label id="opt2">text</label><br>
 				<input type="radio" name="option" value="2" role="radio"><label id="opt3">text</label><br>
 				<input type="radio" name="option" value="3" role="radio"><label id="opt4">text</label><br>
 				<button type="submit" id="nextQuestion" role="button">Next</button>
+=======
+				<label class="answer">
+					<input type="radio" name="answerResponse">
+				</label>
+				<label class="answer">
+					<input type="radio" name="answerResponse">
+				</label>
+				<label class="answer">
+					<input type="radio" name="answerResponse">
+				</label>
+				<label class="answer">
+					<input type="radio" name="answerResponse">
+				</label>
+				<button type="submit" id="submit-answer" data-popup-open="popup-feedback">Next</button>
+>>>>>>> refs/remotes/origin/master
 				<p><span id="questionNo">5</span> out of <span id="outOf">10</span></p>
 			</form>
 		</section>
@@ -33,11 +66,14 @@
 			<h2>Correct</h2>
 			<button type="submit" id="continue" role="button">Continue Quiz</button>
 		</section>
+
 		<section id="finalPage" role="region">
 			<h2>Your Result</h2>
 			<p>You got <span id="correctNo">5</span> out of <span id="total-outof">10</span> correct</p>
-			<button type="submit" id="retake">Retake Quiz</button>
+			<button type="submit" id="retake-button">Retake Quiz</button>
 		</section>
+
+
 	</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
